@@ -1,0 +1,12 @@
+<div class="toolbar">
+  <button
+    class="nav-button"
+    *ngFor="let page of pages | keyvalue"
+    [class.active]="getState(o) === page.key"
+    [routerLink]="[page.key]">
+    {{ page.value }}
+  </button>
+</div>
+<main [@myTransition]="getState(o)">
+  <router-outlet #o="outlet"></router-outlet>
+</main>
